@@ -20,7 +20,7 @@ jobs:
           key: ${{ secrets.SECRET_KEY}}
           port: ${{ secrets.PORT }}
           script: |
-            cd https://github.com/ossygarcia/build-repo.git
+            cd /var/www/html/build-repo/
             git pull
             sudo systemctl restart nginx
             
