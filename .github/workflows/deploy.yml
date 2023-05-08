@@ -22,7 +22,6 @@ jobs:
           script: |
             sudo su
             git config --add safe.directory /var/www/html/build-repo
-            cd /var/www/html/build-repo/
             git pull
             sudo systemctl restart nginx
             
