@@ -21,8 +21,8 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             sudo su
-            cd /var/www/html/build-repo/
             git config --add safe.directory /var/www/html/build-repo
+            cd /var/www/html/build-repo/
             git pull
             sudo systemctl restart nginx
             
