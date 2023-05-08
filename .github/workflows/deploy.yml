@@ -1,0 +1,25 @@
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+    name: Build Docker image and push to repositories
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3   
+          
+      - name: deploying
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SECRET_KEY}}
+          port: ${{ secrets.PORT }}
+          script: |
+            git pull
+            sudo systemctl restart nginx
+            
