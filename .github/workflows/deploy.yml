@@ -20,6 +20,7 @@ jobs:
           key: ${{ secrets.SECRET_KEY}}
           port: ${{ secrets.PORT }}
           script: |
+            cd /var/www/html/build-repo
             sudo su
             git config --add safe.directory /var/www/html/build-repo
             git pull
